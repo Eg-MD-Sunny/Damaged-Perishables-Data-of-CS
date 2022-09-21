@@ -31,26 +31,17 @@ group by CAST(DBO.TOBDT([ShipmentFeedback].[RecordedOn]) AS smalldatetime)
 		, [Warehouse].[Id]
 		, [Warehouse].[Name]		
 
---ORDER BY 2,3,4
 
 
----12,1235,1380,1696,11,61,64
 
 
---select *
---from Category c
---where c.Name like '%Fish%'
---and c.Published = 1
---and c.Deleted = 0
-
+--Calculation
 
 select pv.Id,pv.Name 
 from ProductVariant pv
 join ProductVariantCategoryMapping pvcm on pv.Id = pvcm.ProductVariantId 
 join Category c on c.Id = pvcm.CategoryId 
-
 where c.Id in (12,1235,1380,1696,11,61,64)
-
 group by pv.Id,pv.Name
 
 
